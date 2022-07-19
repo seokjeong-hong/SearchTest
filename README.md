@@ -27,4 +27,4 @@
 
 ## Test URI
 - H2 실행 후 진행 (http://h2database.com/html/main.html 에서 다운로드 후 h2/bin 에서 ./h2.sh)
-- 키워드 관련 장소검색 및 TOP10 키워드 조회 : Scratches/search-http-request.http 에서 테스트 가능)
+- 키워드 관련 장소검색 및 TOP10 키워드 조회 : search-http-request.http 에서 테스트 가능)
