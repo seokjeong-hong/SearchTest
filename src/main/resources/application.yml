@@ -1,0 +1,51 @@
+resilience4j:
+  retry:
+    configs:
+      default:
+        maxRetryAttempts: 5
+        waitDuration: 5
+        ignoreException:
+          - java.util.NoSuchElementException
+    instances:
+      getAccessToken:
+        baseConfig: default
+        maxRetryAttempts: 3
+
+resilience4j.circuitbreaker:
+  configs:
+    default:
+      failureRateThreshold: 50
+      slowCallRateThreshold: 100
+      slowCallDurationThreshold: 60000
+      permittedNumberOfCallsInHalfOpenState: 4
+      maxWaitDurationInHalfOpenState: 1000
+      slidingWindowType: COUNT_BASED
+      slidingWindowSize: 10
+      minimumNumberOfCalls: 10
+      waitDurationInOpenState: 10000
+  instances:
+    kakao:
+      baseConfig: default
+    naver:
+      baseConfig: default
+    insertOrUpdateSearchCount:
+      baseConfig: default
+    placeSearchInfo:
+      baseConfig: default
+
+spring:
+  # DB 연결
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/test
+    driver-class-name: org.h2.Driver
+    username: sa
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+  output:
+    ansi:
+      enabled: always
+logging:
+  level:
+    org.hibernate.type: trace
