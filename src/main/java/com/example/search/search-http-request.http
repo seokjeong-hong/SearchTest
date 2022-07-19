@@ -1,0 +1,15 @@
+### 총 10개의 키워드 관련 장소를 검색, 최대 10개의 검색 키워드 목록
+GET localhost:8080/v1/place?q=곱창
+Content-Type: application/json
+
+### kakao 장소검색 test
+GET localhost:8080/v1/kakao/place?q=곱창
+Content-Type: application/json
+
+### naver 장소검색 test
+GET localhost:8080/v1/naver/place?query=%EA%B3%B1%EC%B0%BD
+Content-Type: application/json
+
+### fallback
+GET localhost:8080/v1/place?q=
+Content-Type: application/json
